@@ -6,13 +6,11 @@ import glob as glb
 import os
 from matplotlib import pyplot as plt
 all_files = glb.glob(os.path.join('../','*.csv'))
+# clear previous file content
+file = open('winequality-both.csv','w+')
+file.close()
 for file_name in all_files:
     data_frame = pd.read_csv(file_name,sep=',',header=0)
-    # data_frame.columns = data_frame.columns.str.replace(' ','_')
-    # print(data_frame.head())
     print(file_name)
-    
-    
-    data_frame.to_csv('winequality-both.csv',index=False)
-   
+    data_frame.to_csv('winequality-both.csv',mode='a',index=False)
     # print(data_frame.describe())

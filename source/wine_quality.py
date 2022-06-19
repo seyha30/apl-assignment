@@ -1,4 +1,5 @@
 from importlib.resources import path
+from operator import mod
 import pandas as pd
 import numpy as np
 import seaborn as sbn
@@ -11,6 +12,6 @@ for file_name in all_files:
     data_frame.columns = data_frame.columns.str.replace(' ','_')
     print(data_frame.head())
     
-    data_frame.to_csv('winequality-both.csv',index=False)
+    data_frame.to_csv('winequality-both.csv',index=False , mod='a')
    
     # print(data_frame.describe())
