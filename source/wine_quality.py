@@ -1,17 +1,7 @@
-from importlib.resources import path
-from operator import mod
 import pandas as pd
 import numpy as np
 import seaborn as sbn
-import glob as glb
-import os
 from matplotlib import pyplot as plt
-all_files = glb.glob(os.path.join('../','*.csv'))
-for file_name in all_files:
-    data_frame = pd.read_csv(file_name,sep=',',header=0)
-    data_frame.columns = data_frame.columns.str.replace(' ','_')
-    print(data_frame.head())
-    
-    data_frame.to_csv('winequality-both.csv',index=False , mod='a')
-   
-    # print(data_frame.describe())
+file_path = 'winequality-both.csv'
+wine = pd.read_csv(file_path,header=0,sep=',')
+print(wine)
